@@ -23,8 +23,7 @@
     "url": "https://github.com/AShoful/blog-react/issues"
   },
   "homepage": "https://github.com/AShoful/blog-react#readme"
-},
-
+  ,
   "eslintConfig": {
     "extends": "react-app"
   },
