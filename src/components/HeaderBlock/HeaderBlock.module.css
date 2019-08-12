@@ -1,0 +1,19 @@
+.HeaderBlock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25vh;
+  min-height: 75px;
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-bottom: 2px solid grey;
+  opacity: 0.8;
+     
+}
+
+.HeaderBlock h1{
+    color: #fff;
+    text-shadow: 4px 4px 5px #000;
+}
