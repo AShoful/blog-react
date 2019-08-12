@@ -8,7 +8,7 @@ function App() {
     <Layout>
       <PostsList />
     </Layout>
-  );
+  )
 }
 
 export default App;

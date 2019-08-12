@@ -14,6 +14,7 @@
 }
 
 .HeaderBlock h1{
+    font-style: italic;
     color: #fff;
     text-shadow: 4px 4px 5px #000;
 }
