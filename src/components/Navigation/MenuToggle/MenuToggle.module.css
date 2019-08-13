@@ -3,7 +3,7 @@
     top: 20px;
     left: 30px;
     font-size: 20px;
-    box-shadow: 2px 2px 2px white;
+    text-shadow: 4px 4px 2px white;
     cursor: pointer;
     color: #1b1919;
     transition: opacity, left .44s ease-in;

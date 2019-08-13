@@ -16,6 +16,12 @@ class Layout extends Component {
 	    })
 	}
 
+	menuCloseHandler = () => {
+		this.setState({
+	      menu: false
+	    })
+	}
+
 	render (){
 		return (
 			<div className={classes.Layout}>
@@ -26,6 +32,7 @@ class Layout extends Component {
 		        />
 		        <Drawer 
 		          isOpen={this.state.menu}
+		          onClose = {this.menuCloseHandler}
 		        />
 				<main>
 					{this.props.children}

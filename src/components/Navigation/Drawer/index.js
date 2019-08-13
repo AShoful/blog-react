@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import classes from './Drawer.module.css'
-// import Backdrop from '../../UI/Backdrop/Backdrop'
+import Backdrop from '../../UI/Backdrop'
 
 const Links = [1,2,3]
 
@@ -14,7 +14,7 @@ class Drawer extends Component {
       return Links.map((link, index) =>{
         return (
         <li key = {index}>
-         <a> Link {link} </a>
+         <a href = '#1'> Link {link} </a>
         </li>  )
       })
   }
@@ -33,7 +33,7 @@ class Drawer extends Component {
             {this.renderLinks()}
           </ul>
         </nav>
-        {/*{ this.props.isOpen ? <Backdrop onClick={this.props.onClose} /> : null }*/}
+        { this.props.isOpen ? <Backdrop onClick={this.props.onClose} /> : null }
       </React.Fragment>
     )
   }
