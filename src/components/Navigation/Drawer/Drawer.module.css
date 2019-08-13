@@ -2,14 +2,14 @@
     position: fixed;
     left: 0;
     top: 0;
-    bottom: 0;
-    width: 80%;
+    bottom: 60vh;
+    width: 40%;
     max-width: 300px;
     padding: 20px 10px;
     box-sizing: border-box;
-    background: #fff;
+    background-color: #fff;
     transform: translateX(0px);
-    transition: transform .22s ease-in;
+    transition: transform .44s ease-in;
     z-index: 90;
 }
 
@@ -29,7 +29,7 @@
 
 .Drawer ul li a {
     color: #363d54;
-    font-size: 30px;
+    font-size: 20px;
     text-decoration: none;
     background-color: #fff;
     position: relative;
