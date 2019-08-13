@@ -4,7 +4,7 @@ import Loader from '../UI/Loader'
 import classes from './PostsList.module.css'
 
 const items = [
-	{
+	  {
       "_id": "5d4aaa6738d11608d028c708",
       "title": "edit",
       "text": "text posta",
@@ -99,7 +99,7 @@ const items = [
       "updatedAt": "2019-06-10T18:02:40.653Z",
       "__v": 0
     }
-]
+  ]  
 
 const  PostsList = () => 
 	<div className = {classes.PostsList}>
@@ -111,6 +111,5 @@ const  PostsList = () =>
 				 />	))
    } 
 	</div>
-
 
 export default PostsList;
