@@ -1,6 +1,5 @@
 .PostItem {
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  font-family: Arial;
   color: #1b1919;
   background-color: #e9efea38;
   margin: 5px 10px;
@@ -9,6 +8,11 @@
   padding: 5px;
   display: flex;
   justify-content: space-between;
+}
+.PostItem:hover{
+  background-color: #c3c6c438;
+  transition: background-color .5s ease-out;
+  cursor: pointer;
 }
 .PostItem a {
     text-decoration: none;
@@ -23,12 +27,12 @@
     opacity: 0.7;
     transition: all .5s ease-out;
 }
-.PostItem p:hover,
+/*.PostItem p:hover,
 .PostItem a:hover{
     opacity: 1;
     font-weight: 500;
     cursor: pointer;
-}
+}*/
 
 .PostItem span{
     font-style: normal;
