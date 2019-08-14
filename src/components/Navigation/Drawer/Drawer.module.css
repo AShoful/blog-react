@@ -29,14 +29,21 @@
 
 .Drawer ul li a {
     color: #363d54;
+    font-style: italic;
     text-decoration: none;
     background-color: #fff;
     position: relative;
     padding: 0 5px 10px 5px;
-    transition: opacity .3s;
+    transition: all .3s;
 }
 
-.Drawer ul li a:hover, .active {
-    opacity: .7;
+.Drawer ul li a:hover{
+    font-weight: 500;
+} 
+
+
+.active {
+    font-weight: 500;
+    cursor: none;
 }
 
