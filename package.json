@@ -5,6 +5,7 @@
   "dependencies": {
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "react-router-dom": "^5.0.1",
     "react-scripts": "3.1.0"
   },
   "scripts": {
@@ -13,7 +14,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-   "repository": {
+  "repository": {
     "type": "git",
     "url": "git+https://github.com/AShoful/blog-react.git"
   },
@@ -22,8 +23,7 @@
   "bugs": {
     "url": "https://github.com/AShoful/blog-react/issues"
   },
-  "homepage": "https://github.com/AShoful/blog-react#readme"
-  ,
+  "homepage": "https://github.com/AShoful/blog-react#readme",
   "eslintConfig": {
     "extends": "react-app"
   },
