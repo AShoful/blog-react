@@ -1,5 +1,7 @@
 .Auth{
 	display: flex;
-	justify-content: space-around;
-	margin: 20px;	
+	justify-content: space-between;
+	margin: 5px 20px;
+	flex-wrap: wrap;
+
 }
