@@ -1,13 +1,16 @@
 .Drawer {
     position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 60vh;
+    left: 1vh;
+    top: 3vh;
+    /*bottom: 61vh;*/
     width: 40%;
-    max-width: 300px;
-    padding: 20px 10px;
+    max-width: 295px;
+    padding: 10px;
     box-sizing: border-box;
     background-color: #fff;
+    border: 1px solid grey;
+    border-radius: 0 25px 0 25px;
+    opacity: 0.6;
     transform: translateX(0px);
     transition: transform .44s ease-in;
     z-index: 90;
@@ -28,7 +31,7 @@
 }
 
 .Drawer ul li a {
-    color: #363d54;
+    color: black;
     font-style: italic;
     text-decoration: none;
     background-color: #fff;
@@ -40,7 +43,6 @@
 .Drawer ul li a:hover{
     font-weight: 500;
 } 
-
 
 .active {
     font-weight: 500;
