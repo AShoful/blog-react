@@ -19,7 +19,7 @@ class Auth extends React.Component{
 		const {login, password} = this.state
 
 		return (
-				<form className = {classes.Auth}>
+				<form className = {classes.Auth} action="" >
 					<fieldset className = {classes.fieldset}> 
 					<legend >Авторизация</legend>
 					<div className = {classes.wrap}>

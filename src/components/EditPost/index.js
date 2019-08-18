@@ -1,11 +1,11 @@
 import React from 'react'
 import {withRouter} from 'react-router-dom'
-import classes from './AddPost.module.css'
+import classes from './EditPost.module.css'
 import Input from '../UI/Input'
 import Textarea from '../UI/Textarea'
 import Button from '../UI/Button'
 
-class AddPost extends React.Component{
+class EditPost extends React.Component{
 
 	state = {
 		post:{
@@ -31,11 +31,11 @@ class AddPost extends React.Component{
 
 	render () {
 		const {title, text, imageUrl} = this.state.post
-		
+
 		return (
-			<form className = {classes.AddPost}  >
+			<form className = {classes.EditPost}  >
 			<fieldset className = {classes.fieldset}>
-			<legend >Добавить пост</legend>
+			<legend >Редактирование поста</legend>
 			<div className = {classes.wrap}>
 				<Input
 					size = 'middle'
@@ -61,7 +61,7 @@ class AddPost extends React.Component{
 			</div>
 			<div className = {classes.wrap}>
 				<Button onClick = {this.handleGoBack}>Назад</Button>
-				<Button disabled = {!title || !text}>Отправить</Button>
+				<Button disabled = {!title || !text}>Изменить</Button>
 			</div>
 			</fieldset>	
 			</form>
@@ -70,8 +70,4 @@ class AddPost extends React.Component{
 
 }	
 
-AddPost.defaultProps = {
-	imageUrl : 'https://images.unsplash.com/photo-1541103554737-fe33e243b45c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5070c2f1196983d1b380bee6b3315c83&auto=format&fit=crop&w=1350&q=80'
-}
-
- export default withRouter(AddPost)
+export default withRouter(EditPost)
