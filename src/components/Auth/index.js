@@ -34,7 +34,6 @@ class Auth extends React.Component{
 							label = 'Пароль'
 							type = 'password'
 							name = 'password'
-							autoComplete="foo"
 							value = {password}
 							onChange = {this.handleChange}
 						/>

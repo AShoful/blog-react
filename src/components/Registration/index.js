@@ -1,6 +1,7 @@
 import React from 'react'
 import classes from './Registration.module.css'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import RegistValidation from './RegistValidation.js'
 import Button from '../UI/Button/'
 import Input from '../UI/Input'
 
@@ -29,7 +30,7 @@ class Registration extends React.Component{
 
 	render(){
 		const {user:{firstName, login, password, passwordConfirm}, touched} = this.state
-		console.log(this.state);
+		const warning = RegistValidation(this.state.user)
 		return (
 				<form className = {classes.Registration} action="" method="post">
 					<fieldset className = {classes.fieldset}> 
@@ -54,7 +55,6 @@ class Registration extends React.Component{
 							type = 'password'
 							name = 'password'
 							size = 'middle'
-							autoComplete="foo"
 							value = {password}
 							onChange = {this.handleChange}
 						/>
@@ -63,22 +63,23 @@ class Registration extends React.Component{
 							type = 'password'
 							name = 'passwordConfirm'
 							size = 'middle'
-							autoComplete="foo"
 							value = {passwordConfirm}
 							onChange = {this.handleChange}
 						/>
 					</div>
+					{touched ? <span>{warning}</span> : null}
 					</fieldset>
 					<div className = {classes.wrap}>
 						<Button 
-							disabled = {!firstName || !login || !password || ! passwordConfirm}>
+							disabled = {!!warning}>
 							Зарегистрироваться
 						</Button>
 						<Link to ='/auth'>
 							<Button >Авторизация</Button>
 						</Link>	
 					</div>
-				</form>)}
+				</form>
+		)}
 }
 
 export default Registration

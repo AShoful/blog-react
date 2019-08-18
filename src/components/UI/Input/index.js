@@ -19,7 +19,7 @@ const Input = props => {
         value={props.value}
         name = {props.name}
         onChange={props.onChange}
-        autoComplete={props.autoComplete}
+        autoComplete='foo'
         />
     </div>
   )

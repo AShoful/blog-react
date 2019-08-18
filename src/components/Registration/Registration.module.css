@@ -21,3 +21,8 @@
     font-weight: 600;
     text-align: right;
 }
+
+.Registration span{
+	font-size: 14px;
+	color: red;
+}
