@@ -17,7 +17,9 @@ const Input = props => {
         type={inputType}
         id={htmlFor}
         value={props.value}
+        name = {props.name}
         onChange={props.onChange}
+        autoComplete={props.autoComplete}
         />
     </div>
   )

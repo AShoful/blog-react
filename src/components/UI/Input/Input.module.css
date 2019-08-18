@@ -1,6 +1,6 @@
 .Input {
     margin: 10px auto;
-    
+    width: 95%
 }
 
 .Input label {
@@ -8,12 +8,14 @@
     padding: 0;
     display: block;
     font-weight: 500;
+    font-style: italic;
 }
 
 .Input input {
     display: block;
     box-sizing: border-box;
     border: 1px solid #bebebe;
+    border-radius: 8px;
     padding: 7px;
     margin: 0 0 5px;
     width:  100%;
@@ -30,10 +32,6 @@
 
 .Input.invalid label {
     color: #f01f30;
-}
-
-.big{
-    width: 95%
 }
 
 .middle{
