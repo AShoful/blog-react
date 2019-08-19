@@ -35,6 +35,7 @@ app.use(cors());
 
 app.get('/posts', Post.index);
 app.post('/posts', Post.create);
+app.get('/posts/:id', Post.read);
 app.delete('/posts/:id', Post.delete);
 app.patch('/posts/:id', Post.update);
 

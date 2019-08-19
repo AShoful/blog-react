@@ -28,7 +28,15 @@ class PostController {
     .catch(err => res.send(err))
   }
 
-  
+  read(req, res) {
+    PostModel.findOne({ _id: req.params.id })
+    .then(post => {
+      if (!post) {res.send({ error: 'not found' });
+      } else {res.json(post);
+      }
+    })
+    .catch(err => res.send(err))
+  }
     
 
   update(req, res) {
