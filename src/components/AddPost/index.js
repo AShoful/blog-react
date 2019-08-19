@@ -4,6 +4,7 @@ import classes from './AddPost.module.css'
 import Input from '../UI/Input'
 import Textarea from '../UI/Textarea'
 import Button from '../UI/Button'
+import axios from '../../axios/'
 
 class AddPost extends React.Component{
 
@@ -27,6 +28,20 @@ class AddPost extends React.Component{
     handleGoBack = (e) => {
     	e.preventDefault();
     	this.props.history.goBack()
+    }
+
+    handleSubmit = (e) => {
+    	const {post} = this.state
+    	e.preventDefault();
+    	axios.post('/posts', post)
+	      .then(res =>  window.alert("Пост успешно сохранен")) 
+		      this.setState({
+		        post: {
+		          title: '',
+		          text: '',
+		          imageUrl: ''
+		        }
+	    	})
     }
 
 	render () {
@@ -61,7 +76,12 @@ class AddPost extends React.Component{
 			</div>
 			<div className = {classes.wrap}>
 				<Button onClick = {this.handleGoBack}>Назад</Button>
-				<Button disabled = {!title || !text}>Отправить</Button>
+				<Button 
+					disabled = {!title || !text} 
+					onClick = {this.handleSubmit}
+					>
+					Отправить
+				</Button>
 			</div>
 			</fieldset>	
 			</form>
