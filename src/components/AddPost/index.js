@@ -12,7 +12,7 @@ class AddPost extends React.Component{
 		post:{
 			title: '',
 		    text: '',
-		    imageUrl: ''
+		    imageUrl: '' 
 		}
 	}
 

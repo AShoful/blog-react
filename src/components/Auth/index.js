@@ -4,20 +4,21 @@ import {Link} from 'react-router-dom'
 import Button from '../UI/Button/'
 import Input from '../UI/Input'
 
-class Auth extends React.Component{
-	state = {
-		login: '',
-        password: '',
-	} 
+function Auth (){
+	// state = {
+	// 	login: '',
+ //        password: '',
+	// } 
+// const handleChange = (e) => {
+ //        const { name, value } = e.target;
+ //        this.setState({ [name]: value });
+ //    }
 
-	handleChange = (e) => {
-        const { name, value } = e.target;
-        this.setState({ [name]: value });
-    }
+	//render(){	
 
-	render(){
-		const {login, password} = this.state
-
+	const [login, setLogin] = React.useState('')
+	const [password, setPassword] = React.useState('')
+		
 		return (
 				<form className = {classes.Auth} action="" >
 					<fieldset className = {classes.fieldset}> 
@@ -28,14 +29,14 @@ class Auth extends React.Component{
 							label = 'Логин'
 							name = 'login'
 							value = {login}
-							onChange = {this.handleChange}
+							onChange = {(e) => setLogin(e.target.value)}
 						/>
 						<Input 
 							label = 'Пароль'
 							type = 'password'
 							name = 'password'
 							value = {password}
-							onChange = {this.handleChange}
+							onChange = {(e) => setPassword(e.target.value)}
 						/>
 					</div>
 					</fieldset>
@@ -45,8 +46,9 @@ class Auth extends React.Component{
 							<Button >Регистрация</Button>
 						</Link>	
 					</div>
-				</form>)}
-}
+				</form>)
+	}
+// }
 
 export default Auth
 	

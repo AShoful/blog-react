@@ -24,6 +24,7 @@
     opacity: 1;
     cursor: pointer;
     transition: all .3s ease-in;
+    font-weight: 600;
 }
   
 .PostItem p {
