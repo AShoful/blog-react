@@ -10,6 +10,7 @@ function PostsList()  {
   const [items, setItems] = useState(null)
   const [error, setError] = useState('');
 
+// class PostsList extends React.Component {
   // state = {
   //   items : null
   // }
@@ -35,12 +36,12 @@ function PostsList()  {
     
     return (
     <div className = {classes.PostsList}>
-      {!error && !items && <Loader />} ;
+      {!error && !items && <Loader />} 
       {!error && items &&  items.map( item => (  
             <PostItem 
               key = {item._id}     
               {...item}
-            />  ))};           
+            />  ))}           
     </div>
     )
     // }
