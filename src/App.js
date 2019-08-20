@@ -6,7 +6,7 @@ import AddPost from './components/AddPost'
 import EditPost from './components/EditPost'
 import Auth from './components/Auth'
 import Registration from './components/Registration'
-import FullPost from './components/FullPost'
+import FullPost from './containers/FullPostContainer/'
 
 
 function App() {

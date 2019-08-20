@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import HeaderBlock from '../../components/HeaderBlock/'
+import HeaderBlock from '../../containers/HeaderBlockContainer/'
 import MenuToggle from '../../components/Navigation/MenuToggle'
 import Drawer from '../../components/Navigation/Drawer/'
 import classes from './Layout.module.css'

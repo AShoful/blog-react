@@ -1,4 +1,5 @@
 import {FETCH_ITEMS_SUCCESS, 
+	FETCH_ITEM_SUCCESS,
 	FETCH_ITEMS_START, 
 	FETCH_ITEMS_ERROR} from '../actions/actionTypes.js'
 
@@ -22,7 +23,13 @@ const initialState = {
   				...state,
   				items: action.payload,
   				loading: false
-  			}	
+  			}
+  		case FETCH_ITEM_SUCCESS:
+  			return{
+  				...state,
+  				items: state.items ? [...state.items, action.payload] : [action.payload],
+  				loading: false
+  			}		
   		case FETCH_ITEMS_ERROR:
   			return{
   				...state,
