@@ -16,6 +16,12 @@ const composeEnhancers =
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
        }) : compose;
 
+// const logger = store => dispatch => action =>{
+// 	const result = dispatch(action)
+// 	console.log('Logger' , result)
+// 	return result
+// }    
+
 const store = createStore(
 	rootReducer,
 	composeEnhancers(
