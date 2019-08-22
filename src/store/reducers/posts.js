@@ -1,5 +1,6 @@
 import {FETCH_ITEMS_SUCCESS, 
 	FETCH_ITEM_SUCCESS,
+  FETCH_ITEM_REMOVE,
 	FETCH_ITEMS_START, 
 	FETCH_ITEMS_ERROR} from '../actions/actionTypes.js'
 
@@ -35,7 +36,12 @@ const initialState = {
   				...state,
   				error: action.payload,
   				loading: false
-  			}		
+  			}
+      case FETCH_ITEM_REMOVE:
+      return {
+        ...state,
+        items: state.items.filter(item => item._id !== action.payload),
+      } 		
   		default:
   			return state
   	}

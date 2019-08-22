@@ -15,7 +15,8 @@
   transition: background-color .3s ease-out;
   
 }
-.PostItemTitle {
+.PostItemTitle,
+span {
     flex: 2;
     color: #1b1919;
     text-decoration: none;
@@ -23,7 +24,8 @@
     opacity: 0.8;
  }
 
-.PostItemTitle:hover{
+.PostItemTitle:hover,
+span{
     opacity: 1;
     cursor: pointer;
     transition: all .3s ease-in;

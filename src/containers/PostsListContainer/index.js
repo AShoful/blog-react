@@ -1,7 +1,7 @@
 import React from 'react'
 import PostsList from '../../components/PostsList/'
 import {connect} from 'react-redux'
-import {fetchItems} from '../../store/actions/actionsPosts'
+import {fetchItems, fetchRemoveItem} from '../../store/actions/actionsPosts'
 
 
 
@@ -12,9 +12,10 @@ class PostsListContainer extends React.Component {
   }
 
   render (){
-    const {items,  loading} = this.props
+    const {items,  loading, removeItem} = this.props
     return  <PostsList 
       	items = {items}
+        removeItem = {removeItem}
       	loading= {loading}/>
     }
   }
@@ -48,7 +49,8 @@ class PostsListContainer extends React.Component {
 
   function mapDispatchToProps (dispatch){
     return{
-      fetchItems: () => dispatch(fetchItems())
+      fetchItems: () => dispatch(fetchItems()),
+      removeItem: (id) => dispatch(fetchRemoveItem(id))
     }
   }
 
