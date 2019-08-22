@@ -7,7 +7,6 @@ const Links = [
     {to: '/', label: 'Главная', exact: true},
     {to: '/auth', label: 'Авторизация', exact: true},
     {to: '/addpost', label: 'Добавить пост', exact: true},
-    {to: '/editpost', label: 'Редактировать пост', exact: true}
     ]
 
 class Drawer extends Component {

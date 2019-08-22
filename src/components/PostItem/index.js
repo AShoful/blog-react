@@ -8,8 +8,12 @@ const PostItem = ({title, createdAt, _id}) => {
 	<div className = {classes.PostItem} >
 		<NavLink className={classes.PostItemTitle} to={"/post/"+ _id}   >
 	    	{title}
-		</NavLink>
-	    <p className = {classes.PostItemDate}>{new Date(createdAt).toLocaleString().split(", ")[0]}</p>                
+		</NavLink> &emsp;
+	    <p className = {classes.PostItemDate}>
+		<NavLink className={classes.PostItemTitle} to={`/post/${_id}/edit`}   >
+	    	edit
+		</NavLink> &ensp;
+	    {new Date(createdAt).toLocaleString().split(", ")[0]}</p>                
     </div>)}
 
 

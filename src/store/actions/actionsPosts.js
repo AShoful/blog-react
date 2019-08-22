@@ -1,4 +1,4 @@
-import axios from '../../axios/'
+import postApi from '../../api/'
 import {FETCH_ITEMS_START,
 	FETCH_ITEM_SUCCESS, 
 	FETCH_ITEMS_SUCCESS, 
@@ -7,7 +7,7 @@ import {FETCH_ITEMS_START,
 export function fetchItems () {
 	return async dispatch => {
 		dispatch(fetchItemsStart())
-		const res = await axios.get('/posts')
+		const res = await postApi.get()
 		try {
 			const posts = res.data
 			dispatch(fetchItemsSuccess(posts))
@@ -40,7 +40,7 @@ export function fetchItemsError(error){
 export function fetchItem (id) {
 	return async dispatch => {
 		dispatch(fetchItemsStart())
-		const res = await axios.get(`/posts/${id}`)
+		const res = await postApi.getItem(id)
 		try {
 			const post = res.data
 			dispatch(fetchItemSuccess(post))
@@ -56,3 +56,4 @@ export function fetchItemSuccess(post){
 		payload: post
 	}
 }
+

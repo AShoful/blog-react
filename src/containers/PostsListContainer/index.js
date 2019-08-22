@@ -39,7 +39,6 @@ class PostsListContainer extends React.Component {
   //   )
   // }
 
-
   function mapStateToProps(state) {
     return {
       items: state.posts.items,
@@ -52,10 +51,5 @@ class PostsListContainer extends React.Component {
       fetchItems: () => dispatch(fetchItems())
     }
   }
-
-
-
-
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostsListContainer);
