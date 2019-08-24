@@ -23,10 +23,7 @@
     align-items: center;
 }
 
-.details i{
-    opacity: 0.6
-}
-
-.details i:hover{
-    opacity: 1
+.details .link:hover{
+    opacity: 1;
+    cursor: pointer;
 } 

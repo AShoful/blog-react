@@ -1,10 +1,11 @@
+
 import React from 'react'
 import classes from './Auth.module.css'
 import {Link} from 'react-router-dom'
 import Button from '../UI/Button/'
 import Input from '../UI/Input'
 
-function Auth (){
+function Auth ({auth, isAuth}){
 	// state = {
 	// 	login: '',
  //        password: '',
@@ -18,6 +19,11 @@ function Auth (){
 
 	const [login, setLogin] = React.useState('')
 	const [password, setPassword] = React.useState('')
+		
+	const handleAuth = (e, data) => {
+		e.preventDefault()
+		auth(data)
+	}
 		
 		return (
 				<form className = {classes.Auth} action="" >
@@ -41,10 +47,16 @@ function Auth (){
 					</div>
 					</fieldset>
 					<div className = {classes.wrap}>
-						<Button disabled = {!login || !password}>Войти</Button>
+						<Button 
+							disabled = {!login || !password} 
+							onClick = {(e) => handleAuth(e, {login, password})}>Войти</Button>
+						{isAuth ? 
+						<Link to = '/'>
+							<Button >На главную</Button>
+						</Link>	:
 						<Link to = '/registr'>
 							<Button >Регистрация</Button>
-						</Link>	
+						</Link>	}
 					</div>
 				</form>)
 	}

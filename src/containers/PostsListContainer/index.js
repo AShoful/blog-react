@@ -12,11 +12,12 @@ class PostsListContainer extends React.Component {
   }
 
   render (){
-    const {items,  loading, removeItem} = this.props
+    const {items,  loading, removeItem, isAuth} = this.props
     return  <PostsList 
       	items = {items}
         removeItem = {removeItem}
-      	loading= {loading}/>
+      	loading= {loading}
+        isAuth = {isAuth}/>
     }
   }
 
@@ -43,7 +44,8 @@ class PostsListContainer extends React.Component {
   function mapStateToProps(state) {
     return {
       items: state.posts.items,
-      loading: state.posts.loading
+      loading: state.posts.loading,
+      isAuth: state.auth.token
     }
   }
 

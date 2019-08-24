@@ -6,13 +6,13 @@ import Button from '../UI/Button'
 
 class AddPost extends React.Component{
 
-	initState = (data, item) => data ? data[item] : ''
+	init = (data, item) => data ? data[item] : ''
 
 	state = {
 		post:{
-			title: this.initState(this.props.changePost, 'title'),
-		    text: this.initState(this.props.changePost, 'text'),
-		    imageUrl: this.initState(this.props.changePost, 'imageUrl')
+			title: this.init(this.props.changePost, 'title'),
+		    text: this.init(this.props.changePost, 'text'),
+		    imageUrl: this.init(this.props.changePost, 'imageUrl')
 		}
 	}
 	

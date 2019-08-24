@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import HeaderBlock from '../../containers/HeaderBlockContainer/'
 import MenuToggle from '../../components/Navigation/MenuToggle'
 import Drawer from '../../components/Navigation/Drawer/'
+import {connect} from 'react-redux'
 import classes from './Layout.module.css'
 
 
@@ -33,6 +34,7 @@ class Layout extends Component {
 		        <Drawer 
 		          isOpen={this.state.menu}
 		          onClose = {this.menuCloseHandler}
+		          isAuth = {this.props.isAuth}
 		        />
 				<main>
 					{this.props.children}
@@ -42,4 +44,8 @@ class Layout extends Component {
 	}
 } 
 
-export default Layout
+const mapStateToProps = (state) =>({
+	isAuth: state.auth.token	
+})
+
+export default connect(mapStateToProps)(Layout)

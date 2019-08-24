@@ -41,7 +41,7 @@ class PostController {
 
   update(req, res) {
     console.log(req.body);
-    PostModel.findOneAndUpdate(req.params.id, { $set: req.body }, err => {
+    PostModel.findByIdAndUpdate(req.params.id, { $set: req.body }, err => {
       if (err) {res.send(err);
       }
       res.json({ status: 'updated' });

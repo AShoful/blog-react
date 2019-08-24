@@ -5,7 +5,7 @@ class UserController {
   
   create(req, res) {
     const data = req.body;
-    const {login, password, firstName, lastName} = data;
+    const {login, password, firstName} = data;
 
     UserModel.findOne({ login })
       .then(user => {
@@ -15,13 +15,13 @@ class UserController {
                             login,
                             password: hash,
                             firstName,
-                            lastName
                         })
                         .then(user => {
                             console.log(user);
+                            global.alert('Регистрация прошла успешно')
                             res.json({
                                 ok: true
-                            });
+                          });
                         })
                         .catch(err => {
                             console.log(err);
@@ -59,10 +59,10 @@ class UserController {
                     error: 'Логин и пароль не верны',
                    });
           } else {
-              res.json({
+             res.json({
                   user,
                   ok: true
-              });
+             });
           }
       })
    }
