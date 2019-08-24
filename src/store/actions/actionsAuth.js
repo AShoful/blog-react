@@ -5,19 +5,18 @@ export function auth (authData){
 	return async dispatch => {
       const response = await postApi.loginUser(authData)
       try {
-        const {user:{_id, login}, ok} = response.data
+        const {user:{_id, login}} = response.data
         const expiresIn = 360
         const expirationDate = new Date(new Date().getTime() + expiresIn * 1000)
         localStorage.setItem('userId', _id)
         localStorage.setItem('login', login)
         localStorage.setItem('expirationDate', expirationDate)
-        if(ok){
-                window.alert("Авторизация прошла успешно")
-                dispatch(authSuccess(login))
-                dispatch(autoLogout(expiresIn))
-          }        
-      } catch (e){
-        console.log(e)
+        window.alert("Авторизация прошла успешно")
+        dispatch(authSuccess(login))
+        dispatch(autoLogout(expiresIn))
+     } catch (e){
+        const {error} = response.data 
+         window.alert(error)
       }
 	}
 }
@@ -39,8 +38,7 @@ export function autoLogout(time){
 }
 
 export function logout(){
-
-	  localStorage.removeItem('login')
+    localStorage.removeItem('login')
     localStorage.removeItem('userId')
     localStorage.removeItem('expirationDate')
 

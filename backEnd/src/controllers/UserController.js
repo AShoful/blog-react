@@ -25,6 +25,7 @@ class UserController {
                         })
                         .catch(err => {
                             console.log(err);
+                            
                             res.json({
                                 ok: false,
                                 error: 'Ошибка, попробуйте позже!'
@@ -32,6 +33,7 @@ class UserController {
                         });
                 });
             } else {
+              
               res.json({
                     ok: false,
                     error: 'Имя занято!',
@@ -47,6 +49,7 @@ class UserController {
     UserModel.findOne({login})
       .then(user => {
         if (!user) {
+          
           res.json({
               ok: false,
               error: 'Логин и пароль не верны',
@@ -54,6 +57,7 @@ class UserController {
         } else {
           bcrypt.compare(password, user.password, function(err, result) {
             if (!result) {
+                
                 res.json({
                     ok: false,
                     error: 'Логин и пароль не верны',
@@ -69,6 +73,7 @@ class UserController {
  })
       .catch(err => {
         console.log(err);
+        
         res.json({
             ok: false,
             error: 'Ошибка, попробуйте позже!'

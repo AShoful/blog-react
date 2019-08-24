@@ -14,12 +14,10 @@ const PostItem = ({title, createdAt, _id, removeItem, isAuth, owner:{login}}) =>
 		<NavLink className={classes.PostItemTitle} to={`/post/${_id}/edit`}   >
 	    	edit
 		</NavLink> &ensp;
-		{login} &ensp;
 		{new Date(createdAt).toLocaleString().split(", ")[0]}</p> )
 	:
 	(<p className = {classes.PostItemDate}>
-				{login} &ensp;
-	 		   {new Date(createdAt).toLocaleString().split(", ")[0]}</p>) 	
+		{new Date(createdAt).toLocaleString().split(", ")[0]}</p>) 	
 
 	return(
 	<div className = {classes.PostItem} >

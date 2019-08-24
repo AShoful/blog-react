@@ -13,7 +13,7 @@ const AddPostContainer  = (props) =>{
 			window.alert('База данных недоступна, попробуйте позже')
 		}
 	}
-		 	
+	console.log(props);	 	
 		return <AddPost 
 			goBack = {props.history.goBack}
 			handleSubmit = {handleSubmit}

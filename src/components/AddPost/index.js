@@ -33,6 +33,7 @@ class AddPost extends React.Component{
     handleSubmite = (e) => {
     	e.preventDefault()
     	const { post } = this.state
+    	post.owner = localStorage.getItem('userId')
     	const { postId, changePost } = this.props
     	this.props.handleSubmit(post, postId) 
 	      if (!changePost){
