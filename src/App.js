@@ -21,7 +21,7 @@ class App extends React.Component {
       <Layout>
         <Switch>
             <Route path="/auth" component={Auth} />
-            <Route path="/registr" component={Registration} />
+            <Route path="/regist" component={Registration} />
             <Route path="/addpost" component={AddPost} />
             <Route path="/post/:id/edit" component={EditPost} />
             <Route path="/post/:id" component={FullPost} />

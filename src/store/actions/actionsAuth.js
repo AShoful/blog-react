@@ -22,8 +22,7 @@ export function auth (authData){
 }
 
 export function authSuccess (token) {
-  console.log(token);
-	return {
+  return {
 		type: AUTH_SUCCESS,
 		token
 	}
@@ -50,7 +49,6 @@ export function logout(){
 export function autoLogin() {
   return dispatch => {
     const login = localStorage.getItem('login')
-    console.log(login);
     if (!login) {
       dispatch(logout())
     } else {

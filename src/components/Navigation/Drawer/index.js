@@ -26,8 +26,7 @@ class Drawer extends Component {
     if (!this.props.isOpen){
       cls.push(classes.close)
     }
-    console.log(this.props);
-
+    
     const Links = [
       {to: '/', label: 'Главная', exact: true},
     ]

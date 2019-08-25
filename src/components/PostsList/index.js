@@ -5,10 +5,8 @@ import classes from './PostsList.module.css'
 
 
 const PostsList = ({loading, items, removeItem, isAuth}) =>     
-      {
-        console.log(items);
-
-        return<div className = {classes.PostsList}>
+      
+          <div className = {classes.PostsList}>
               {
                 loading && items.length !== 0 
                 ? <Loader/>
@@ -21,7 +19,7 @@ const PostsList = ({loading, items, removeItem, isAuth}) =>
                     )
                 )
               }
-            </div>}
+            </div>
       
 
 export default PostsList;

@@ -7,6 +7,6 @@ export default {
   remove: id => axios.delete(`/posts/${id}`),
   post: data => axios.post('/posts/', data),
   patch: (data, id) => axios.patch(`/posts/${id}`, data),
-  postUser: data => axios.post('/register/', data),
-  loginUser: data => axios.post('/login/', data),
+  postUser: data => axios.post('/register', data),
+  loginUser: data => axios.post('/login', data),
 };

@@ -4,7 +4,6 @@ import  classes from './PostItem.module.css'
 
 const PostItem = ({title, createdAt, _id, removeItem, isAuth, owner:{login}}) => {
 	
-	console.log(isAuth, login)
 	const itemDetail = isAuth && isAuth === login
 	?
 	(<p className = {classes.PostItemDate}>

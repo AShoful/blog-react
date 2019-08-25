@@ -19,7 +19,7 @@ const Button = props => {
 }
 
 Button.defaultProps = {
-  onClick: () => console.log('buttonOnClick'),
+  onClick: () => {},
   disabled: false,
   type: 'primary'
 }

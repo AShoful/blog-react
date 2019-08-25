@@ -18,7 +18,6 @@ class UserController {
                         })
                         .then(user => {
                             console.log(user);
-                            global.alert('Регистрация прошла успешно')
                             res.json({
                                 ok: true
                           });

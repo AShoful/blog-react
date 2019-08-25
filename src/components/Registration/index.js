@@ -2,6 +2,7 @@ import React from 'react'
 import classes from './Registration.module.css'
 import { Link } from 'react-router-dom'
 import RegistValidation from './RegistValidation.js'
+import postApi from '../../api/'
 import Button from '../UI/Button/'
 import Input from '../UI/Input'
 
@@ -26,6 +27,29 @@ class Registration extends React.Component{
             },
             touched: true
         });
+    }
+
+    handleSubmit =  async (data, e) => {
+        e.preventDefault();
+        
+        const res = await postApi.postUser(data)
+          try {
+              const { error, ok } = res.data
+              if(ok){
+                  window.alert("Регистрация прошла успешно")
+                  this.setState({
+                    user: {
+                        firstName: '',
+                        login: '',
+                        password: '',
+                        passwordConfirm: ''
+                    }
+                })
+              } else {
+                  window.alert(error)
+              }
+          }
+           catch (err){console.log(err)}
     }
 
 	render(){
@@ -71,7 +95,8 @@ class Registration extends React.Component{
 					</fieldset>
 					<div className = {classes.wrap}>
 						<Button 
-							disabled = {!!warning}>
+							disabled = {!!warning}
+							onClick = {this.handleSubmit.bind(this, {login, firstName, password})}>
 							Зарегистрироваться
 						</Button>
 						<Link to ='/auth'>

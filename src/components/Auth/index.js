@@ -23,6 +23,8 @@ function Auth ({auth, isAuth}){
 	const handleAuth = (e, data) => {
 		e.preventDefault()
 		auth(data)
+		setLogin('')
+		setPassword('')
 	}
 		
 		return (
@@ -48,13 +50,13 @@ function Auth ({auth, isAuth}){
 					</fieldset>
 					<div className = {classes.wrap}>
 						<Button 
-							disabled = {!login || !password} 
+							disabled = {!login || !password || localStorage.getItem('login')} 
 							onClick = {(e) => handleAuth(e, {login, password})}>Войти</Button>
 						{isAuth ? 
 						<Link to = '/'>
 							<Button >На главную</Button>
 						</Link>	:
-						<Link to = '/registr'>
+						<Link to = '/regist'>
 							<Button >Регистрация</Button>
 						</Link>	}
 					</div>

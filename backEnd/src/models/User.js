@@ -12,7 +12,6 @@ const UserSchema = new Schema({
         required: true
     },
     firstName: String,
-    lastName:  String
 }, {
     timestamps: true
 });
