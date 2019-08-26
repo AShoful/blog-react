@@ -1,6 +1,5 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
-import Icon from 'material-icons-react';
 import Tooltip from '../UI/Tooltip/'
 import  classes from './PostItem.module.css'
 
@@ -11,17 +10,17 @@ const PostItem = ({title, createdAt, _id, removeItem, isAuth, owner:{login}}) =>
 	(<p className = {classes.PostItemDate}>
 	    <span onClick = {() => removeItem(_id)}>
 	    	<Tooltip content = {'Удалить'} position = {'left'}>
-	        	<Icon icon="clear" size = 'tiny' />
+	        	<span className = {classes.del}>&#128465;</span>
 	        </Tooltip>	
 	    </span> &ensp;
 		<NavLink className={classes.PostItemTitle} to={`/post/${_id}/edit`}   >
 	    	<Tooltip content = {'Редактировать пост'} position = {'left'}>
-	    		<Icon icon="create" size = 'tiny' />
+	    		<img src = './icons/edit.png' alt = 'edit' />
 	    	</Tooltip>	
 		</NavLink> &ensp;
 		<span>
 			<Tooltip content = {`Автор ${login}`} position = {'left'}>
-				<Icon icon="perm_identity" size = 'tiny'/>
+				<img src = './icons/employee.png' alt = 'author' />
 			</Tooltip>	
 		</span>	
 	    &ensp;
@@ -33,7 +32,7 @@ const PostItem = ({title, createdAt, _id, removeItem, isAuth, owner:{login}}) =>
 	(<p className = {classes.PostItemDate}>
 		<span>
 			<Tooltip content = {`Автор ${login}`} position = {'left'}>
-				<Icon icon="perm_identity" size = 'tiny'/>
+				<img src = './icons/employee.png' alt = 'author' />{/*<Icon icon="perm_identity" size = 'tiny'/>*/}
 			</Tooltip>	
 		</span>	
 	    &ensp;

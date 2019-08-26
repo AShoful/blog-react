@@ -1,18 +1,17 @@
-import React, {Component} from 'react'
+import React from 'react'
 import classes from './Drawer.module.css'
 import {NavLink} from 'react-router-dom'
 import Backdrop from '../../UI/Backdrop'
+ 
+const Drawer = ({isOpen, onClose, isAuth}) => {
 
-
-class Drawer extends Component {
-  
-  renderLinks (Links) {
+  const renderLinks = (Links) => {
       return Links.map((link, index) =>
           <li key = {index}>
              <NavLink 
               to = {link.to}
               exact = {link.exact}
-              onClick = {this.props.onClose} 
+              onClick = {onClose} 
               activeClassName={classes.active}>
                 {link.label}
              </NavLink>
@@ -20,36 +19,31 @@ class Drawer extends Component {
       )
   }
 
-  render() {
-    const cls = [classes.Drawer]
+  const cls = [classes.Drawer]
 
-    if (!this.props.isOpen){
+  if (!isOpen){
       cls.push(classes.close)
     }
     
-    const Links = [
-      {to: '/', label: 'Главная', exact: true},
-    ]
+  const Links = [{to: '/', label: 'Главная', exact: true},]
 
-    if(this.props.isAuth){
+  if(isAuth){
       Links.push({to: '/addpost', label: 'Добавить пост', exact: true})
       Links.push({to: '/logout', label: 'Выйти', exact: false})
-    } else {
+  } else {
       Links.push({to: '/auth', label: 'Авторизация', exact: false},)
-    }
-
-
-    return (
-      <React.Fragment>
-        <nav className={cls.join(' ')}>
-          <ul>
-            {this.renderLinks(Links)}
-          </ul>
-        </nav>
-        { this.props.isOpen ? <Backdrop onClick={this.props.onClose} /> : null }
-      </React.Fragment>
-    )
   }
+
+  return (
+    <React.Fragment>
+      <nav className={cls.join(' ')}>
+        <ul>
+          {renderLinks(Links)}
+        </ul>
+      </nav>
+      {isOpen ? <Backdrop onClick={onClose} /> : null }
+    </React.Fragment>
+  )
 }
 
 export default Drawer

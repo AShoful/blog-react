@@ -5,7 +5,7 @@
   margin: 5px 10px;
   border: 1px solid grey;
   border-radius: 5px;
-  padding: 5px;
+  padding: 0;
   display: flex;
   justify-content: space-between;
 }
@@ -31,8 +31,20 @@ span{
     cursor: pointer;
     transition: all .3s ease-in;
     font-weight: 400;
+    align-items: center;
 }
 
 .PostItemDate{
   flex: none;
+}
+
+.Postitem img{
+  height: 5px
+}
+
+.del{
+  padding-bottom: 5px;
+  font-size: 20px;
+  font-weight: 500;
+  vertical-align: middle;
 }
