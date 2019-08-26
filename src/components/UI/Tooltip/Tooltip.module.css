@@ -9,11 +9,10 @@
 
 .tooltip {
   position: absolute;
-  padding: 10px;
-  border-radius: 3px;
+  padding: 5px 20px;
+  border-radius: 10px;
   overflow: hidden;
   background-color: #EDEDED;
-  width: 300px;
   font-size: 12px;
   box-sizing: border-box;
   box-shadow: 1px 1px 10px #777;

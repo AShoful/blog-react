@@ -1,17 +1,11 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classes from './Tooltip.module.css';
 
-const  Tooltip = (props) => {
+const  Tooltip = ({ children, content, style, position }) => {
   
-  const [visible, setVisible] = useState(false)
-
-  const show = () => setVisible(true)
-  const hide = () => setVisible(false)
-  
-  render() {
-    const { children, content, style, position } = props;
-
+    const [visible, setVisible] = useState(false)
+    
     const cls = [classes.tooltip]
     cls.push(classes[position])
 
@@ -20,13 +14,13 @@ const  Tooltip = (props) => {
         { visible && <span style={style} className={cls.join(' ')}>{content}</span> }
         <span
           className={classes.targetElement}
-          onMouseEnter={show}
-          onMouseLeave={hide}
+          onMouseEnter={() => setVisible(true)}
+          onMouseLeave={() => setVisible(false)}
         >{children}</span>
       </span>
     );
-  }
 }
+
 
 Tooltip.propTypes = {
     children: PropTypes.node.isRequired,
