@@ -1,24 +1,19 @@
 import React from 'react'
 import classes from './MenuToggle.module.css'
+import Icon from 'material-icons-react';
 
 const MenuToggle = props => {
-  const cls = [
-    classes.MenuToggle,
-    'fa'
-  ]
+  // const cls = [
+  //   classes.MenuToggle,
+  //   'fa'
+  // ]
 
-  if (props.isOpen) {
-    cls.push('fa-times')
-    cls.push(classes.open)
-  } else {
-    cls.push('fa-bars')
-  }
-
+  
   return (
-    <i
-      className={cls.join(' ')}
-      onClick={props.onToggle}
-    />
+    <span className ={classes.MenuToggle}>
+        <Icon icon="menu" size = 'tiny' onClick={props.onToggle}/>
+    </span> 
+    
   )
 }
 
