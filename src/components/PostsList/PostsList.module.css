@@ -3,3 +3,7 @@
 	min-height: 260px;
 
 }
+.Pagination{
+	display: flex;
+	justify-content: center;
+}

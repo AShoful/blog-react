@@ -1,11 +1,13 @@
 import React from 'react'
 import PostItem from '../PostItem'
 import Loader from '../UI/Loader'
+import Pagination from '../UI/Pagination/'
 import classes from './PostsList.module.css'
 
 
 const PostsList = ({loading, items, removeItem, isAuth}) =>     
-      
+        
+        <React.Fragment>  
           <div className = {classes.PostsList}>
               {
                 loading && items.length !== 0 
@@ -19,7 +21,11 @@ const PostsList = ({loading, items, removeItem, isAuth}) =>
                     )
                 )
               }
-            </div>
+            <div className = {classes.Pagination}>    
+                <Pagination lastPage = {10} />
+            </div>   
+          </div>
+        </React.Fragment>  
       
 
 export default PostsList;

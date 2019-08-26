@@ -4,6 +4,11 @@ export const renderPaginationBtns = (onClick, page, lastPage) => {
  
 let res = []
 
+const activeStyle = {
+  backgroundColor: 'rgb(233, 239, 234)',
+  fontWeight: '700'
+}
+
 if( lastPage < 9 ) {
 for ( let i = 1; i <= lastPage; i++ ){
   res.push(i)
@@ -28,7 +33,7 @@ for ( let i = 1; i <= lastPage; i++ ){
       key={num}
       onClick={onClick}
       data-name={num}
-      className={num === page ? 'active' : ''}
+      style={num === page ? activeStyle : null}
       disabled={num === page}  
     >{num}</button>
   });

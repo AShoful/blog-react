@@ -25,7 +25,10 @@ const PostItem = ({title, createdAt, _id, removeItem, isAuth, owner:{login}}) =>
 			</Tooltip>	
 		</span>	
 	    &ensp;
-		{new Date(createdAt).toLocaleString().split(", ")[0]}</p> )
+		    <span>
+				{new Date(createdAt).toLocaleString().split(", ")[0]} 
+			</span>	
+		</p>)
 	:
 	(<p className = {classes.PostItemDate}>
 		<span>
@@ -34,8 +37,10 @@ const PostItem = ({title, createdAt, _id, removeItem, isAuth, owner:{login}}) =>
 			</Tooltip>	
 		</span>	
 	    &ensp;
-		{new Date(createdAt).toLocaleString().split(", ")[0]}</p>) 	
-
+		    <span>
+				{new Date(createdAt).toLocaleString().split(", ")[0]} 	
+			</span>
+		</p>)
 	return(
 	<div className = {classes.PostItem} >
 		<NavLink className={classes.PostItemTitle} to={"/post/"+ _id}   >
