@@ -8,7 +8,7 @@ import {fetchItems, fetchRemoveItem} from '../../store/actions/actionsPosts'
 class PostsListContainer extends React.Component {
   
   componentDidMount(){
-    this.props.fetchItems()
+    this.props.fetchItems(this.props.page)
   }
 
   render (){
@@ -45,7 +45,8 @@ class PostsListContainer extends React.Component {
     return {
       items: state.posts.items,
       loading: state.posts.loading,
-      isAuth: state.auth.token
+      isAuth: state.auth.token,
+      page: state.posts.page
     }
   }
 

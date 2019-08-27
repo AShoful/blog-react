@@ -1,7 +1,7 @@
 import React from 'react'
 import PostItem from '../PostItem'
 import Loader from '../UI/Loader'
-import Pagination from '../UI/Pagination/'
+import Pagination from '../../containers/PaginationContainer/'
 import classes from './PostsList.module.css'
 
 
@@ -21,10 +21,12 @@ const PostsList = ({loading, items, removeItem, isAuth}) =>
                     )
                 )
               }
+            </div>
+              
             <div className = {classes.Pagination}>    
-                <Pagination lastPage = {10} />
+                <Pagination  />
             </div>   
-          </div>
+          
         </React.Fragment>  
       
 

@@ -2,12 +2,16 @@ import {FETCH_ITEMS_SUCCESS,
 	FETCH_ITEM_SUCCESS,
   FETCH_ITEM_REMOVE,
 	FETCH_ITEMS_START, 
-	FETCH_ITEMS_ERROR} from '../actions/actionTypes.js'
+	FETCH_ITEMS_ERROR,
+  PAGE_CHANGE} from '../actions/actionTypes.js'
 
 const initialState = {
 	items : [],
-	loading: false,
-	error: null
+  loading: false,
+	error: null,
+  page: 1,
+  totalPosts: 0,
+  limit: 1
   }
 
 
@@ -22,7 +26,9 @@ const initialState = {
   		case FETCH_ITEMS_SUCCESS:
   			return{
   				...state,
-  				items: action.payload,
+  				items: action.posts,
+          totalPosts: action.totalPosts,
+          limit: action.limit,
   				loading: false
   			}
   		case FETCH_ITEM_SUCCESS:
@@ -41,6 +47,11 @@ const initialState = {
       return {
         ...state,
         items: state.items.filter(item => item._id !== action.payload),
+      } 
+      case PAGE_CHANGE:
+      return {
+        ...state,
+        page: action.payload 
       } 		
   		default:
   			return state

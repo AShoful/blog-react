@@ -1,13 +1,11 @@
-import React, {useState} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classes from './Pagination.module.css';
 import {renderPaginationBtns} from './renderPaginationBtns'
 
 
-const Pagination = ({ lastPage }) => {
-
-  const [page, setPage] = useState(1)
-
+const Pagination = ({ lastPage, pageChange, page}) => {
+    
   const handlePageChange = ({ target }) => {
     const btnType = target.getAttribute('data-name');
     
@@ -26,15 +24,12 @@ const Pagination = ({ lastPage }) => {
       }
     }
   }
-const updatePage = (number) =>  setPage( number) 
-    
-  
-console.log(page)
+const updatePage = num =>  pageChange(num)
 
-  return (
+return (
   <div className={classes.Pagination}>
-     <button onClick={handlePageChange} data-name="prev" disabled = {page ===1}>{'<'}</button> 
-    {renderPaginationBtns(handlePageChange, page, lastPage)}
+    <button onClick={handlePageChange} data-name="prev" disabled = {page ===1}>{'<'}</button> 
+      {renderPaginationBtns(handlePageChange, page, lastPage)}
     <button onClick={handlePageChange} data-name="next" disabled = {page ===lastPage}>{'>'}</button>
   </div>
   )

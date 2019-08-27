@@ -5,10 +5,18 @@ class PostController {
 
   index(req, res) {
 
+    const page = req.query.page || 1;
+    const result = {}
+    result.limit = 5
+    PostModel.countDocuments({}) 
+      .then( totalPosts => result.totalPosts = totalPosts)
     PostModel.find()
+        .skip(( page-1 )*result.limit)
+        .limit(result.limit)
         .sort({ createdAt: -1 })
         .then((posts) => {
-           res.json(posts) })
+          result.posts = posts
+          res.json(result) })
         .catch(err => res.send(err))
   }
 

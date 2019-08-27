@@ -4,12 +4,12 @@
     top: 10vh;
     /*bottom: 61vh;*/
     width: 40%;
-    max-width: 295px;
+    max-width: 250px;
     padding: 10px;
     box-sizing: border-box;
     background-color: #fff;
     border: 1px solid grey;
-    border-radius: 10px;
+    border-radius: 5px;
     opacity: 0.8;
     transform: translateX(0px);
     transition: transform .44s ease-in;

@@ -1,6 +1,5 @@
 .tooltipWrapper {
   position: relative;
-  
 }
 
 .targetElement {
@@ -10,10 +9,10 @@
 .tooltip {
   position: absolute;
   padding: 5px 20px;
-  border-radius: 10px;
+  border-radius: 5px;
   overflow: hidden;
   background-color: #EDEDED;
-  min-width: 100px;
+  min-width: 80px;
   font-size: 12px;
   box-sizing: border-box;
   box-shadow: 1px 1px 10px #777;

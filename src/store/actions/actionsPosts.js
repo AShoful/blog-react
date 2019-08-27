@@ -3,15 +3,16 @@ import {FETCH_ITEMS_START,
 	FETCH_ITEM_SUCCESS,
 	FETCH_ITEM_REMOVE, 
 	FETCH_ITEMS_SUCCESS, 
-	FETCH_ITEMS_ERROR} from './actionTypes.js'
+	FETCH_ITEMS_ERROR,
+	PAGE_CHANGE} from './actionTypes.js'
 
 export function fetchItems () {
 	return async dispatch => {
 		dispatch(fetchItemsStart())
 		const res = await postApi.get()
 		try {
-			const posts = res.data
-			dispatch(fetchItemsSuccess(posts))
+			const data = res.data
+			dispatch(fetchItemsSuccess(data))
 		} catch (error){
 			dispatch(fetchItemsError(error)) 
 		}
@@ -24,10 +25,12 @@ export function fetchItemsStart(){
 	}
 }
 
-export function fetchItemsSuccess(posts){
+export function fetchItemsSuccess(data){
 	return {
 		type: FETCH_ITEMS_SUCCESS,
-		payload: posts
+		posts: data.posts,
+		totalPosts: data.totalPosts,
+		limit: data.limit
 	}
 }
 
@@ -78,4 +81,11 @@ export function removeItem (id) {
     type: FETCH_ITEM_REMOVE,
     payload: id,
   })
+}
+
+export function postsPageChahge (page) {
+	return ({
+		type: PAGE_CHANGE,
+		payload: page
+	})
 }
