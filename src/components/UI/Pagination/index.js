@@ -13,6 +13,12 @@ const Pagination = ({ lastPage, pageChange, page}) => {
       updatePage(+btnType);
     } else {
       switch (btnType) {
+        case 'gapNext':
+          updatePage(page + 3);
+          break;
+        case 'gapPrev':
+          updatePage(page - 3);
+          break;
         case 'next':
           updatePage(page + 1);
           break;
@@ -28,9 +34,11 @@ const updatePage = num =>  pageChange(num)
 
 return (
   <div className={classes.Pagination}>
+    <button  onClick={handlePageChange} data-name="gapPrev" disabled = {page < 4}>{'<<'}</button>
     <button  onClick={handlePageChange} data-name="prev" disabled = {page ===1}>{'<'}</button> 
       {renderPaginationBtns(handlePageChange, page, lastPage)}
     <button  onClick={handlePageChange} data-name="next" disabled = {page ===lastPage}>{'>'}</button>
+    <button  onClick={handlePageChange} data-name="gapNext" disabled = {page > lastPage - 3}>{'>>'}</button>
   </div>
   )
 }
