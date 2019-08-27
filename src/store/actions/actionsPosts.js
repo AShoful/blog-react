@@ -6,10 +6,10 @@ import {FETCH_ITEMS_START,
 	FETCH_ITEMS_ERROR,
 	PAGE_CHANGE} from './actionTypes.js'
 
-export function fetchItems () {
+export function fetchItems (page) {
 	return async dispatch => {
 		dispatch(fetchItemsStart())
-		const res = await postApi.get()
+		const res = await postApi.get(page)
 		try {
 			const data = res.data
 			dispatch(fetchItemsSuccess(data))

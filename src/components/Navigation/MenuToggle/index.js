@@ -7,7 +7,10 @@ const MenuToggle = props => {
   return (
     <span className ={classes.MenuToggle}>
       <Tooltip content = {'Меню'} position = {'right'}>
-        <span onClick={props.onToggle}>&#128736;</span>
+        <span onClick={props.onToggle}>
+	        &#128736;
+	        {/*<img src = 'icons/menu.png' alt = 'menu' />*/}
+        </span>
       </Tooltip>  
     </span> 
   )

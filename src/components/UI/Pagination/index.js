@@ -28,9 +28,9 @@ const updatePage = num =>  pageChange(num)
 
 return (
   <div className={classes.Pagination}>
-    <button onClick={handlePageChange} data-name="prev" disabled = {page ===1}>{'<'}</button> 
+    <button  onClick={handlePageChange} data-name="prev" disabled = {page ===1}>{'<'}</button> 
       {renderPaginationBtns(handlePageChange, page, lastPage)}
-    <button onClick={handlePageChange} data-name="next" disabled = {page ===lastPage}>{'>'}</button>
+    <button  onClick={handlePageChange} data-name="next" disabled = {page ===lastPage}>{'>'}</button>
   </div>
   )
 }

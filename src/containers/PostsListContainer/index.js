@@ -11,6 +11,13 @@ class PostsListContainer extends React.Component {
     this.props.fetchItems(this.props.page)
   }
 
+  componentDidUpdate(prevProps) {
+    const { page, fetchItems } = this.props
+    if (page !== prevProps.page) {
+        fetchItems(page);
+        }
+  }
+
   render (){
     const {items,  loading, removeItem, isAuth} = this.props
     return  <PostsList 
@@ -22,7 +29,6 @@ class PostsListContainer extends React.Component {
   }
 
   // function PostsList(props)  { 
-
   // const {items, loading, fetchItems} = props
 
   //   React.useEffect(() => {
@@ -52,7 +58,7 @@ class PostsListContainer extends React.Component {
 
   function mapDispatchToProps (dispatch){
     return{
-      fetchItems: () => dispatch(fetchItems()),
+      fetchItems: (page) => dispatch(fetchItems(page)),
       removeItem: (id) => dispatch(fetchRemoveItem(id))
     }
   }
