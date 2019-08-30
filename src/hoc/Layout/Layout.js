@@ -5,7 +5,6 @@ import Drawer from '../../components/Navigation/Drawer/'
 import {connect} from 'react-redux'
 import classes from './Layout.module.css'
 
-
 // class Layout extends React.Component {
 // 	state = {
 // 		menu: false
@@ -44,7 +43,6 @@ import classes from './Layout.module.css'
 // 	}
 // } 
 
-
 const Layout = ({children, isAuth}) => {
 
 	const [menu, setMenu] = useState(false)
@@ -57,7 +55,7 @@ const Layout = ({children, isAuth}) => {
 		          isOpen={menu}
 		        />
 		        <Drawer 
-		          onToggle={() => setMenu(false)}
+		          onClose={() => setMenu(false)}
 		          isOpen={menu}
 		          isAuth = {isAuth}
 		        />
