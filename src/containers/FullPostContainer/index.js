@@ -1,27 +1,45 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {connect} from 'react-redux'
 import FullPost from '../../components/FullPost/'
 import {withRouter} from 'react-router-dom'
 import {fetchItem} from '../../store/actions/actionsPosts'
 import Loader from '../../components/UI/Loader/'
 
-class FullPostContainer extends React.Component {
+// class FullPostContainer extends React.Component {
 
-	componentDidMount(){
-		const {post, postId, fetchItem} = this.props;
-		if (!post){
-		fetchItem(postId)}
-	}
+// 	componentDidMount(){
+// 		const {post, postId, fetchItem} = this.props;
+// 		if (!post){
+// 		fetchItem(postId)}
+// 	}
 	
-	render (){
-		const {history:{goBack}, post} = this.props
-		return  (post ? 
+// 	render (){
+// 		const {history:{goBack}, post} = this.props
+// 		return  (post ? 
+// 			 <FullPost 
+// 			 	text = {post && post.text} 
+// 			 	createdAt = {post && post.createdAt}
+// 			 	goBack = {goBack} /> : 
+// 			 <Loader/>)
+// 	}
+
+// }
+
+
+const FullPostContainer = ({history:{goBack}, post, postId, fetchItem}) => {
+	
+	useEffect(()=> {
+		if(!post){
+			fetchItem(postId)
+		}})
+
+
+	return (post ? 
 			 <FullPost 
 			 	text = {post && post.text} 
 			 	createdAt = {post && post.createdAt}
 			 	goBack = {goBack} /> : 
 			 <Loader/>)
-	}
 
 }
 

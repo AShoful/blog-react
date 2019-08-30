@@ -3,10 +3,8 @@ import PostsList from '../../components/PostsList/'
 import {connect} from 'react-redux'
 import {fetchItems, fetchRemoveItem} from '../../store/actions/actionsPosts'
 
-  const  PostsListContainer = (props) =>  { 
+  const  PostsListContainer = ({items, loading, fetchItems, page, isAuth, removeItem}) =>  { 
 
-  const {items, loading, fetchItems, page, isAuth, removeItem} = props
-  
      useEffect(() => {
      fetchItems(page)}, [page, fetchItems])
    
