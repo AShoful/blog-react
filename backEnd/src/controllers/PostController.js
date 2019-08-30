@@ -28,7 +28,7 @@ class PostController {
       title: data.title,
       text: data.text,
       imageUrl: data.imageUrl,
-      owner: data.owner
+      owner: data.owner || '5d625499ea055c12a860c6de'
     });
 
     post.save()

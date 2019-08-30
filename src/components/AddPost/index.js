@@ -50,6 +50,8 @@ class AddPost extends React.Component{
 	render () {
 		const {title, text, imageUrl} = this.state.post
 		const { changePost } = this.props
+	     	  
+	
 		return (
 			<form className = {classes.AddPost}  >
 			<fieldset className = {classes.fieldset}>
@@ -86,8 +88,8 @@ class AddPost extends React.Component{
 			</form>
 			)
 	}
+}
 
-}	
 
 
 
