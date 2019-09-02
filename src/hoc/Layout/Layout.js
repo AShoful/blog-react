@@ -69,7 +69,7 @@ const Layout = ({children, isAuth}) => {
 
 
 const mapStateToProps = (state) =>({
-	isAuth: state.auth.token	
+	isAuth: state.auth.login	
 })
 
 export default connect(mapStateToProps)(Layout)

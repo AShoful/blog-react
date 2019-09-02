@@ -3,81 +3,69 @@ import PostModel from '../models/Post';
 
 class PostController {
 
-  index(req, res) {
-
+  async index(req, res) {
+    try{
     const page = req.query.page || 1;
     const result = {}
     result.limit = 5
-    PostModel.countDocuments({}) 
-      .then( totalPosts => result.totalPosts = totalPosts)
-    PostModel.find()
-        .skip(( page-1 )*result.limit)
-        .limit(result.limit)
-        .sort({ createdAt: -1 })
-        .then((posts) => {
-          result.posts = posts
-          res.json(result) })
-        .catch(err => res.send(err))
+    result.totalPosts = await PostModel.countDocuments({}) 
+    result.posts = await PostModel.find()
+                  .skip(( page-1 )*result.limit)
+                  .limit(result.limit)
+                  .sort({ createdAt: -1 })
+    res.json(result) 
+    }catch (err) {
+     err => res.send(err)
+    }
   }
-
-  
-  create(req, res) {
+ 
+  async create(req, res) {
     const data = req.body;
-
     const post = new PostModel({
       title: data.title,
       text: data.text,
       imageUrl: data.imageUrl,
-      owner: data.owner || '5d625499ea055c12a860c6de'
+      owner: data.owner || '5d6d387e8e6ca524f08f1628'
     });
 
-    post.save()
-    .then(() => {res.json({ status: 'ok' })})
-    .catch(err => res.send(err))
+    await post.save()
+    try{
+      res.json({ status: 'ok' })
+    } catch (err) {
+      res.send(err)
+    }
   }
 
-  read(req, res) {
-    PostModel.findOne({ _id: req.params.id })
-    .then(post => {
-      if (!post) {res.send({ error: 'not found' });
-      } else {res.json(post);
-      }
-    })
-    .catch(err => res.send(err))
+  async read(req, res) {
+    const post = await PostModel.findOne({ _id: req.params.id })
+    try {
+      if (!post) {res.send({ error: 'not found' })
+    } else {res.json(post)}
+         }
+    catch (err) {err => res.send(err)}
   }
-    
-
-  update(req, res) {
+ 
+  async update(req, res) {
     console.log(req.body);
-    PostModel.findByIdAndUpdate(req.params.id, { $set: req.body }, err => {
-      if (err) {res.send(err);
-      }
-      res.json({ status: 'updated' });
-    });
+    await PostModel.findByIdAndUpdate(req.params.id, { $set: req.body })
+    try {
+      res.json({ status: 'updated' })
+    } catch(err) {
+      res.send(err)
+    }     
   }
 
-  delete(req, res) {
-    PostModel.deleteOne({
-      _id: req.params.id,
-    })
-    .then(post => {
+  async delete(req, res) {
+    const post = await PostModel.findOneAndDelete({id: req.params.id})
+    try {
       if (post) {
         res.json({ status: 'deleted' });
       } else {
         res.json({ status: 'error' });
       }
-    })
-    .catch(err => res.send(err))
-  }
-
-  indexUser(req, res) {
-    
-    PostModel.find({owner: req.params.id})
-    .sort({ createdAt: 1 })
-    .then((posts) => {
-       res.json(posts) })
-    .catch(err => {
-      res.send(err)})
+    } catch (err) {
+      res.send(err)
+    }
   }
 }
 

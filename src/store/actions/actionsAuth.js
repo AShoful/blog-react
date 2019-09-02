@@ -6,7 +6,7 @@ export function auth (authData){
       const response = await postApi.loginUser(authData)
       try {
         const {user:{_id, login}} = response.data
-        const expiresIn = 360
+        const expiresIn = 3600
         const expirationDate = new Date(new Date().getTime() + expiresIn * 1000)
         localStorage.setItem('userId', _id)
         localStorage.setItem('login', login)
@@ -21,10 +21,10 @@ export function auth (authData){
 	}
 }
 
-export function authSuccess (token) {
+export function authSuccess (login) {
   return {
 		type: AUTH_SUCCESS,
-		token
+		login
 	}
 }
 

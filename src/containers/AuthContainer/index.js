@@ -12,7 +12,7 @@ function AuthContainer (props){
 }
 
 const mapStateToProps = state => ({
-	isAuth: state.auth.token
+	isAuth: state.auth.login
 })
 
 const mapDispatchToProps = dispatch => {

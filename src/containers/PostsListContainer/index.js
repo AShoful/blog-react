@@ -47,7 +47,7 @@ import {fetchItems, fetchRemoveItem} from '../../store/actions/actionsPosts'
     return {
       items: state.posts.items,
       loading: state.posts.loading,
-      isAuth: state.auth.token,
+      isAuth: state.auth.login,
       page: state.posts.page
     }
   }

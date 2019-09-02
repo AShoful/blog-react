@@ -1,96 +1,97 @@
 import UserModel from '../models/User';
-import bcrypt from 'bcrypt-nodejs'
+import upash from 'upash'
+import argon2 from '@phc/argon2'
+
+upash.install('argon2', argon2);
+
 
 class UserController {
   
-  create(req, res) {
-    const data = req.body;
-    const {login, password, firstName} = data;
+  async create(req, res) {
+    const {login, password, firstName} = req.body;
 
-    UserModel.findOne({ login })
-      .then(user => {
-        if (!user) {
-            bcrypt.hash(password, null, null, (err, hash) =>{
-              UserModel.create({
-                            login,
-                            password: hash,
-                            firstName,
-                        })
-                        .then(user => {
-                            console.log(user);
-                            res.json({
-                                ok: true
-                          });
-                        })
-                        .catch(err => {
-                            console.log(err);
-                            
-                            res.json({
-                                ok: false,
-                                error: 'Ошибка, попробуйте позже!'
-                            });
-                        });
-                });
-            } else {
-              
-              res.json({
-                    ok: false,
-                    error: 'Имя занято!',
-                });
-            }
-        })
-      }
+  try {  
+  const user = await UserModel.findOne({ login })
+    if (!user) {
+      const hash = await upash.hash(password)
+      const newUser = await UserModel.create({
+                  login,
+                  password: hash,
+                  firstName,
+            })
+      res.json({ ok: true });
+    } else { res.json({
+        ok: false,
+        error: 'Имя занято!',
+      });
+    }
+ } catch (err){
+  console.log(err)
+  res.json({
+        ok: false,
+        error: 'Ошибка, попробуйте позже!',
+      });
+  }
+ }
 
-   read (req, res) {
-    const data = req.body;
-    const {login, password} = data;
+   async read (req, res) {
+    const {login, password} = req.body;
 
-    UserModel.findOne({login})
-      .then(user => {
-        if (!user) {
-          
-          res.json({
-              ok: false,
-              error: 'Логин и пароль не верны',
+    try {
+     const user = await UserModel.findOne({login})
+      if (!user) {
+        res.json({
+            ok: false,
+            error: 'Логин и пароль не верны',
           });
-        } else {
-          bcrypt.compare(password, user.password, function(err, result) {
-            if (!result) {
-                
-                res.json({
-                    ok: false,
-                    error: 'Логин и пароль не верны',
-                   });
-          } else {
-             res.json({
-                  user,
-                  ok: true
-             });
+      } else {
+        const match = await upash.verify(user.password, password) 
+          if (!match) {
+            res.json({
+                ok: false,
+                error: 'Логин и пароль не верны',
+               });
+          } else { 
+            res.json({
+                user,
+                ok: true
+              });
           }
-      })
-   }
- })
-      .catch(err => {
+      }
+   } catch (err) {
         console.log(err);
-        
         res.json({
             ok: false,
             error: 'Ошибка, попробуйте позже!'
         });
-    });
+    }
  }     
 
   
 
-  index(req, res) {
-    UserModel.find()
-    .then((err, users) => {
-      if (err) {
-        res.send(err);
-      }
+  async index(req, res) {
+    try{
+      const users = await UserModel.find()
       res.json(users);
+    } catch (err) {
+      err => res.send(err)
+    }
+  }
+
+  async delete(req, res) {
+    try{
+    const deleteUser = await UserModel.remove({
+      _id: req.params.id,
     })
-    .catch(err => res.send(err))
+    if (deleteUser) {
+        res.json({ status: 'deleted' });
+      } else {
+        res.json({ status: 'error' });
+      }
+    } catch (err){
+      console.log(err)
+
+    }
   }
 }
 

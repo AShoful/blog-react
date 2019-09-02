@@ -39,8 +39,6 @@ app.get('/posts/:id', Post.read);
 app.delete('/posts/:id', Post.delete);
 app.patch('/posts/:id', Post.update);
 
-app.get('/users/:id', Post.indexUser); 
-
 app.get('/login', User.index);
 app.post('/register', User.create);
 app.post('/login', User.read)
