@@ -10,7 +10,7 @@ const PostItem = ({title, createdAt, _id, removeItem, isAuth, owner:{login}}) =>
 	(<p className = {classes.PostItemDate}>
 	    <span onClick = {() => removeItem(_id)}>
 	    	<Tooltip content = {'Удалить'} position = {'left'}>
-	        	<span className = {classes.del}>&#128465;</span>
+	        	<span className = {classes.del}>x</span>
 	        </Tooltip>	
 	    </span> &ensp;
 		<NavLink className={classes.PostItemTitle} to={`/post/${_id}/edit`}   >

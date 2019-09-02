@@ -56,8 +56,8 @@ class PostController {
   }
 
   async delete(req, res) {
-    const post = await PostModel.findOneAndDelete({id: req.params.id})
     try {
+    const post = await PostModel.findOneAndRemove({_id: req.params.id})
       if (post) {
         res.json({ status: 'deleted' });
       } else {
