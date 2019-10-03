@@ -15,9 +15,7 @@
 }
 
 .Button:active {
-    border-left: 3px solid white;
-    
-    
+    border-left: 3px solid white;    
 }
 
 .Button:disabled {

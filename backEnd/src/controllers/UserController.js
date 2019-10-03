@@ -1,8 +1,8 @@
 import UserModel from '../models/User';
-import upash from 'upash'
-import argon2 from '@phc/argon2'
+// import upash from 'upash'
+// import argon2 from '@phc/argon2'
 
-upash.install('argon2', argon2);
+// upash.install('argon2', argon2);
 
 
 class UserController {
@@ -13,10 +13,10 @@ class UserController {
   try {  
   const user = await UserModel.findOne({ login })
     if (!user) {
-      const hash = await upash.hash(password)
+      // const hash = await upash.hash(password)
       const newUser = await UserModel.create({
                   login,
-                  password: hash,
+                  password, 
                   firstName,
             })
       res.json({ ok: true });
@@ -45,8 +45,9 @@ class UserController {
             error: 'Логин и пароль не верны',
           });
       } else {
-        const match = await upash.verify(user.password, password) 
-          if (!match) {
+        // const match = await upash.verify(user.password, password) 
+        //   if (!match) {
+          if(!user.password === password){
             res.json({
                 ok: false,
                 error: 'Логин и пароль не верны',

@@ -6,7 +6,6 @@ import classes from './PostsList.module.css'
 
 
 const PostsList = ({loading, items, removeItem, isAuth}) =>     
-        
         <React.Fragment>  
           <div className = {classes.PostsList}>
               {

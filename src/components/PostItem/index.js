@@ -10,17 +10,19 @@ const PostItem = ({title, createdAt, _id, removeItem, isAuth, owner:{login}}) =>
 	(<p className = {classes.PostItemDate}>
 	    <span onClick = {() => removeItem(_id)}>
 	    	<Tooltip content = {'Удалить'} position = {'left'}>
-	        	<span className = {classes.del}>x</span>
+	        	<span className = {classes.del}>
+				<img src = {require('./icons/icons8-delete-document-16.png')} alt = 'delete' />
+				</span>
 	        </Tooltip>	
 	    </span> &ensp;
 		<NavLink className={classes.PostItemTitle} to={`/post/${_id}/edit`}   >
 	    	<Tooltip content = {'Редактировать пост'} position = {'left'}>
-	    		<img src = './icons/edit.png' alt = 'edit' />
+	    		<img src = {require('./icons/edit.png')} alt = 'edit' />
 	    	</Tooltip>	
 		</NavLink> &ensp;
 		<span>
 			<Tooltip content = {`Автор ${login}`} position = {'left'}>
-				<img src = './icons/employee.png' alt = 'author' />
+				<img src = {require('./icons/employee.png')} alt = 'author' />
 			</Tooltip>	
 		</span>	
 	    &ensp;

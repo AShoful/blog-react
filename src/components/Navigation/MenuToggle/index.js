@@ -8,7 +8,7 @@ const MenuToggle = props => {
     <span className ={classes.MenuToggle}>
       <Tooltip content = {'Меню'} position = {'right'}>
         <span onClick={props.onToggle}>
-	        <img src = 'icons/user.png' alt = 'menu' />
+	        <img src = {require('./icons/icons8-menu-24.png')} alt = 'menu' />
         </span>
       </Tooltip>  
     </span> 
