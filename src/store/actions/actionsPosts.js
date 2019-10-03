@@ -62,19 +62,17 @@ export function fetchItemSuccess(post){
 }
 
 export function fetchRemoveItem (id) {
-    if (global.confirm('Вы действительно хотите удалить пост?')) {
-      return async dispatch => {
+    return async dispatch => {
       	await postApi.remove(id)	
       	try {
-      		global.alert('Пост успешно удален!')
-      		dispatch(removeItem(id))
+			dispatch(removeItem(id))
+			window.alert('Пост успешно удален!')  
       	}
       	catch(error){
       		dispatch(fetchItemsError(error)) 
       	}
   }
-}
-}  
+} 
 
 export function removeItem (id) {
 	return ({

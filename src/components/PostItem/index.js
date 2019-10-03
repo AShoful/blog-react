@@ -8,7 +8,8 @@ const PostItem = ({title, createdAt, _id, removeItem, isAuth, owner:{login}}) =>
 	const itemDetail = isAuth && isAuth === login
 	?
 	(<p className = {classes.PostItemDate}>
-	    <span onClick = {() => removeItem(_id)}>
+		<span onClick = {() => window.confirm('Вы действительно хотите удалить пост?') ? 
+		removeItem(_id) : null}>
 	    	<Tooltip content = {'Удалить'} position = {'left'}>
 	        	<span className = {classes.del}>
 				<img src = {require('./icons/icons8-delete-document-16.png')} alt = 'delete' />

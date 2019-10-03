@@ -26,7 +26,7 @@ class UserController {
       });
     }
  } catch (err){
-  console.log(err)
+  console.log(err.message)
   res.json({
         ok: false,
         error: 'Ошибка, попробуйте позже!',
@@ -60,7 +60,7 @@ class UserController {
           }
       }
    } catch (err) {
-        console.log(err);
+        console.log(err.message);
         res.json({
             ok: false,
             error: 'Ошибка, попробуйте позже!'
@@ -90,7 +90,7 @@ class UserController {
         res.json({ status: 'error' });
       }
     } catch (err){
-      console.log(err)
+      console.log(err.message)
 
     }
   }
